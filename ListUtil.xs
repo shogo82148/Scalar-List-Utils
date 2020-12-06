@@ -162,6 +162,11 @@ my_sv_ref(pTHX_ SV *dst, const SV *sv, int ob)
 #  endif
 #endif /* HAVE_UNICODE_PACKAGE_NAMES */
 
+/* SvGAMAGIC is available from perl 5.6.1 */
+#ifndef SvGAMAGIC
+#define SvGAMAGIC(sv) (SvFLAGS(sv) & (SVs_GMG|SVf_AMAGIC))
+#endif
+
 enum slu_accum {
     ACC_IV,
     ACC_NV,
