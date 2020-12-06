@@ -122,10 +122,6 @@ my_sv_copypv(pTHX_ SV *const dsv, SV *const ssv)
 #  define PERL_HAS_BAD_MULTICALL_REFCOUNT
 #endif
 
-#if PERL_VERSION_LT(5,14,0)
-#  define croak_no_modify() croak("%s", PL_no_modify)
-#endif
-
 #ifndef SvNV_nomg
 #  define SvNV_nomg SvNV
 #endif
